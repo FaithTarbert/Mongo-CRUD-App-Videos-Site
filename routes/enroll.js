@@ -27,7 +27,7 @@ router.get('/:id', function(req, res, next) {
   //       res.render('attachAccessory', { title: 'Attach Accessory', cube: aCube, menuAccessories: menuAccessories, user : req.user});
   //     });
   // });
-  res.render('user-lectures', { title: "This is the Logged In Users' Enrolled Lectures"});
+  res.render('user-lectures', { title: "This is the Logged In Users' Enrolled Lectures", user: req.user});
 });
 
 //POST the form request to attach a new accessory to a specific cube by id, using the drop down menu populated from the GET request above

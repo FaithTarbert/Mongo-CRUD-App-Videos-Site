@@ -59,7 +59,7 @@ router.post('/',
                             return next(err);
                         }
                         console.log('the User is', user);
-                        res.redirect('user-home');
+                        res.redirect('user-index');
                     });
                 });
             }        
