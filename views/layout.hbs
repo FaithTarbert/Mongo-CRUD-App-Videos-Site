@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD App 2021</title>
+    <link href="/stylesheets/site.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+
+            {{!-- this is the reference to the header hbs file --}}
+            {{>header}}
+
+       {{!-- this is the reference to any registration errors --}}     
+       {{#if errors}}
+        <div id="notifications">
+                {{#each errors}}
+                    <p id="notification-message">{{this.msg}}</p>
+                {{/each}}
+        </div>
+        {{/if}}
+
+        {{!-- this is the reference to the body contents of each page --}}
+        <main>{{{body}}}</main>
+    </div>
+    
+        {{!-- this is the reference to the hbs footer --}}
+        {{>footer}}
+</body>
+</html>

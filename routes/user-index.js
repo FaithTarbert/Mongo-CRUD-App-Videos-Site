@@ -9,15 +9,14 @@ const Users = require('../models/user');
 router.get('/', function(req, res) {
     Videos.find().then((video) => {
       console.log(video)
-  ;    res.render('guest-index', {video: video, user: req.user});
+  ;    res.render('user-index', {video: video, user: req.user});
     });
   });
 
-// this logs you out using the nav bar menu via passport (no longer links to logutPage route)
-router.get('/logout', function(req, res, next) {
-  console.log("this user is logged out");
-  req.logOut();
-  res.redirect('/');
-});
+//this logs you out using the nav bar menu via passport (no longer links to logutPage route)
+// router.get('/logout', function(req, res, next) {
+//   req.logOut();
+//   res.redirect('/');
+// });
 
 module.exports = router;
