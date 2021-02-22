@@ -7,7 +7,7 @@ const Users = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    Videos.find().then((video) => {
+    Videos.find().sort('-createdAt').then((video) => {
       console.log(video)
   ;    res.render('user-index', {video: video, user: req.user});
     });
