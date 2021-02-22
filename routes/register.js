@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var passport = require('passport');
-const { check, body, validationResult} = require('express-validator');
+const { body, validationResult} = require('express-validator');
 //res.send(json-response-object)
 
 
@@ -17,10 +17,14 @@ router.post('/',
 [
     body('username')
         .trim()
+        .isAlphanumeric()
+        .withMessage('Username Must Be Consist of Numbers & Letters Only')
         .isLength({min: 5})
         .withMessage('Username Must Be At Least 5 Characters Long'),
     body('password')
         .trim()
+        .isAlphanumeric()
+        .withMessage('Password Must Be Consist of Numbers & Letters Only')
         .isLength({min: 8})
         .withMessage('Password Must Be At Least 8 Characters Long'),
     body('repeatPassword')
