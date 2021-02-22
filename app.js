@@ -28,7 +28,7 @@ var loginRouter = require('./routes/login');
 // var attachRouter = require('./routes/attach');
 var deleteRouter = require('./routes/delete');
 var editRouter = require('./routes/edit');
-// var searchRouter = require('./routes/search');
+var searchRouter = require('./routes/search');
 
 //don't need this route when using button/passport to logout manually
 // var logoutRouter = require('./routes/logout');
@@ -81,7 +81,7 @@ app.use('/login', loginRouter);
 // app.use('/accessory/attach', attachRouter);
 app.use('/delete', deleteRouter);
 app.use('/edit', editRouter);
-// app.use('/search', searchRouter);
+app.use('/search', searchRouter);
 app.use('/user-index', userIndexRouter);
 
 //not using logout hbs route because of passport

@@ -7,14 +7,15 @@ const Users = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-    Videos.find().then((video) => {
+  //find all videos then sort by users in descending order
+    Videos.find().sort('-users').then((video) => {
       var only3;
       let arr = [];
       for(let i = 0; i <= 2; i++) {
         only3 = video[i];
         arr.push(only3);
       } 
-      // console.log('the vids', arr);
+      console.log('the vids', arr);
       res.render('guest-index', { video: arr, user: req.user });      
     });
   });
