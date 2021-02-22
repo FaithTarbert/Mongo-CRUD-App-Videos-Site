@@ -9,16 +9,16 @@ router.get('/:id', async (req, res, next) => {
     try {
         video = await Video.findById(req.params.id);
         console.log(video);
-        await video.deleteOne();
-        res.render('user-index', {user: req.user});
+        await video.remove();
+        res.redirect('/user-index');
     }catch(err) {
         if(err) throw err;
         if (video == null) {
             console.log("null option fired");
-            res.render('user-index', {user: req.user});
+            res.redirect('/user-index');
         }else {
             console.log("error fired");
-            res.redirect(`404`);
+            res.redirect(`/404`);
         }       
     }     
 });

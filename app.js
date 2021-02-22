@@ -20,14 +20,14 @@ var app = express();
 var guestIndexRouter = require('./routes/index');
 var userIndexRouter = require('./routes/user-index');
 var createRouter = require('./routes/create');
-// var enrollRouter = require('./routes/enroll');
+var enrollRouter = require('./routes/enroll');
 var detailsRouter = require('./routes/details');
 // var aboutRouter = require('./routes/about');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 // var attachRouter = require('./routes/attach');
 var deleteRouter = require('./routes/delete');
-// var editRouter = require('./routes/edit');
+var editRouter = require('./routes/edit');
 // var searchRouter = require('./routes/search');
 
 //don't need this route when using button/passport to logout manually
@@ -73,14 +73,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', guestIndexRouter);
 app.use('/create', createRouter);
-// app.use('/enroll', enrollRouter);
+app.use('/enroll', enrollRouter);
 app.use('/details', detailsRouter);
 // app.use('/about', aboutRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 // app.use('/accessory/attach', attachRouter);
 app.use('/delete', deleteRouter);
-// app.use('/edit', editRouter);
+app.use('/edit', editRouter);
 // app.use('/search', searchRouter);
 app.use('/user-index', userIndexRouter);
 
